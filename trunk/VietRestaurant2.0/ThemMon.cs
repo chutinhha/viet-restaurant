@@ -34,7 +34,7 @@ namespace VietRestaurant2._0
                 comboTreeDanhMuc.SelectedValue = MaDanhMuc;
                 pictureBox1.Image = global::VietRestaurant2._0.Properties.Resources._5564116;
                 LoadDonVi();
-                
+                panelEx1.Visible = false;
             }
             catch (Exception)
             {
@@ -83,10 +83,26 @@ namespace VietRestaurant2._0
                 {
                 string TenMonAn = txtThucDon.Text;
                 string DonVi = comboTreeDonVi.Text;
+                checkso(txtGiaBan);
                 float Gia = a;
                 string Anh = path;
                 int MaDanhMucThucDon = Convert.ToInt32(comboTreeDanhMuc.SelectedValue.ToString());
-                thucdon.InsertMonAn(TenMonAn, DonVi, Gia, Anh, MaDanhMucThucDon);
+                if (checkBoxXThucDon.Checked)
+                {
+                    checkso(txtGiaNguyenLieu);
+                   float GiaNguyenLieu = a;
+                    int MaDanhMucNguyenLieu = Convert.ToInt32(cbDanhMucNguyenLieu.SelectedValue.ToString());
+                  KhoHang.Model.InsertKho insert = new KhoHang.Model.InsertKho();
+                    thucdon.InsertMonAn(TenMonAn, DonVi, Gia, Anh, MaDanhMucThucDon);
+                   insert.InsertNguyenLieu(TenMonAn, DonVi, Gia, MaDanhMucNguyenLieu);
+                   
+
+                }
+                else
+                {
+                    thucdon.InsertMonAn(TenMonAn, DonVi, Gia, Anh, MaDanhMucThucDon);
+                }
+                
                 this.Close();
                 }
                
@@ -142,6 +158,29 @@ namespace VietRestaurant2._0
             }
             luong.Text = txt;
             luong.SelectionStart = luong.Text.Length;
+        }
+
+        private void checkBoxXThucDon_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxXThucDon.Checked == true)
+            {
+                panelEx1.Visible = true;
+                KhoHang.Model.LoadKhoHang load = new KhoHang.Model.LoadKhoHang();
+                DataTable dt = load.LoadDanhMucNhomDanhMucNguyenLieu();
+                cbDanhMucNguyenLieu.DataSource = dt;
+                cbDanhMucNguyenLieu.ValueMember = "ID";
+
+            }
+            else
+            {
+                panelEx1.Visible = false;
+            }
+        }
+
+        private void txtGiaNguyenLieu_TextChanged(object sender, EventArgs e)
+        {
+            checkso(txtGiaNguyenLieu);
+            TachSo(txtGiaNguyenLieu);
         }
     }
 }

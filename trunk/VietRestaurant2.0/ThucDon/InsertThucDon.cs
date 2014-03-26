@@ -28,7 +28,7 @@ namespace VietRestaurant2._0.ThucDon
             if (Anh != "")
             {
                 conn = new SqlConnection(ConnectionString);
-                SqlCommand cmd = new SqlCommand("insert into ThucDon values (@TenMonAn,@DonVi,@Gia,@Anh,@MaDanhMuc)", conn);
+                SqlCommand cmd = new SqlCommand("insert into ThucDon values (@TenMonAn,@DonVi,@Gia,@Anh,@MaDanhMuc,null)", conn);
                 cmd.Parameters.AddWithValue("@TenMonAn", TenMonAn);
                 cmd.Parameters.AddWithValue("@DonVi", DonVi);
                 cmd.Parameters.AddWithValue("@Gia", Gia);

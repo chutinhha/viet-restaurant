@@ -39,12 +39,18 @@
             this.comboTreeDonVi = new DevComponents.DotNetBar.Controls.ComboTree();
             this.txtThucDon = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtGiaBan = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.checkBoxXNguyenLieu = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxXThucDon = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.btnOk = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddDonVi = new DevComponents.DotNetBar.ButtonX();
+            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.cbDanhMucNguyenLieu = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.txtGiaNguyenLieu = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelEx1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelX1
@@ -180,20 +186,21 @@
             this.txtGiaBan.TabIndex = 3;
             this.txtGiaBan.TextChanged += new System.EventHandler(this.txtGiaBan_TextChanged);
             // 
-            // checkBoxXNguyenLieu
+            // checkBoxXThucDon
             // 
-            this.checkBoxXNguyenLieu.BackColor = System.Drawing.Color.White;
+            this.checkBoxXThucDon.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.checkBoxXNguyenLieu.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxXNguyenLieu.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxXNguyenLieu.Location = new System.Drawing.Point(94, 202);
-            this.checkBoxXNguyenLieu.Name = "checkBoxXNguyenLieu";
-            this.checkBoxXNguyenLieu.Size = new System.Drawing.Size(254, 23);
-            this.checkBoxXNguyenLieu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxXNguyenLieu.TabIndex = 6;
-            this.checkBoxXNguyenLieu.Text = "Sử dụng món này làm nguyên liệu trong kho";
+            this.checkBoxXThucDon.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxXThucDon.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxXThucDon.Location = new System.Drawing.Point(94, 202);
+            this.checkBoxXThucDon.Name = "checkBoxXThucDon";
+            this.checkBoxXThucDon.Size = new System.Drawing.Size(254, 23);
+            this.checkBoxXThucDon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxXThucDon.TabIndex = 6;
+            this.checkBoxXThucDon.Text = "Sử dụng món này làm nguyên liệu trong kho";
+            this.checkBoxXThucDon.CheckedChanged += new System.EventHandler(this.checkBoxXThucDon_CheckedChanged);
             // 
             // buttonX3
             // 
@@ -203,7 +210,7 @@
             this.buttonX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonX3.Image = global::VietRestaurant2._0.Properties.Resources.cross_481;
             this.buttonX3.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.buttonX3.Location = new System.Drawing.Point(245, 243);
+            this.buttonX3.Location = new System.Drawing.Point(260, 319);
             this.buttonX3.Name = "buttonX3";
             this.buttonX3.Size = new System.Drawing.Size(105, 35);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -218,7 +225,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnOk.Image = global::VietRestaurant2._0.Properties.Resources._001_06;
             this.btnOk.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnOk.Location = new System.Drawing.Point(118, 243);
+            this.btnOk.Location = new System.Drawing.Point(133, 319);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(105, 35);
             this.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2010;
@@ -252,14 +259,93 @@
             this.btnAddDonVi.TabIndex = 4;
             this.btnAddDonVi.Click += new System.EventHandler(this.btnAddDonVi_Click);
             // 
+            // panelEx1
+            // 
+            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.cbDanhMucNguyenLieu);
+            this.panelEx1.Controls.Add(this.labelX5);
+            this.panelEx1.Controls.Add(this.labelX6);
+            this.panelEx1.Controls.Add(this.txtGiaNguyenLieu);
+            this.panelEx1.Location = new System.Drawing.Point(23, 229);
+            this.panelEx1.Name = "panelEx1";
+            this.panelEx1.Size = new System.Drawing.Size(484, 84);
+            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx1.Style.GradientAngle = 90;
+            this.panelEx1.TabIndex = 12;
+            // 
+            // cbDanhMucNguyenLieu
+            // 
+            this.cbDanhMucNguyenLieu.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.cbDanhMucNguyenLieu.BackgroundStyle.Class = "TextBoxBorder";
+            this.cbDanhMucNguyenLieu.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbDanhMucNguyenLieu.ButtonDropDown.Visible = true;
+            this.cbDanhMucNguyenLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbDanhMucNguyenLieu.ForeColor = System.Drawing.Color.Black;
+            this.cbDanhMucNguyenLieu.Location = new System.Drawing.Point(118, 14);
+            this.cbDanhMucNguyenLieu.Name = "cbDanhMucNguyenLieu";
+            this.cbDanhMucNguyenLieu.Size = new System.Drawing.Size(316, 24);
+            this.cbDanhMucNguyenLieu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbDanhMucNguyenLieu.TabIndex = 13;
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.ForeColor = System.Drawing.Color.Black;
+            this.labelX5.Location = new System.Drawing.Point(10, 56);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(75, 23);
+            this.labelX5.TabIndex = 12;
+            this.labelX5.Text = "Giá nhập:";
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.ForeColor = System.Drawing.Color.Black;
+            this.labelX6.Location = new System.Drawing.Point(10, 15);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(105, 23);
+            this.labelX6.TabIndex = 11;
+            this.labelX6.Text = "Danh mục thực đơn:";
+            // 
+            // txtGiaNguyenLieu
+            // 
+            this.txtGiaNguyenLieu.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtGiaNguyenLieu.Border.Class = "TextBoxBorder";
+            this.txtGiaNguyenLieu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGiaNguyenLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtGiaNguyenLieu.ForeColor = System.Drawing.Color.Black;
+            this.txtGiaNguyenLieu.Location = new System.Drawing.Point(118, 55);
+            this.txtGiaNguyenLieu.Name = "txtGiaNguyenLieu";
+            this.txtGiaNguyenLieu.Size = new System.Drawing.Size(316, 24);
+            this.txtGiaNguyenLieu.TabIndex = 10;
+            this.txtGiaNguyenLieu.TextChanged += new System.EventHandler(this.txtGiaNguyenLieu_TextChanged);
+            // 
             // ThemMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 285);
+            this.ClientSize = new System.Drawing.Size(511, 357);
+            this.Controls.Add(this.panelEx1);
             this.Controls.Add(this.buttonX3);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.checkBoxXNguyenLieu);
+            this.Controls.Add(this.checkBoxXThucDon);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAddDonVi);
             this.Controls.Add(this.txtGiaBan);
@@ -276,6 +362,7 @@
             this.Text = "Thêm món";
             this.Load += new System.EventHandler(this.ThemMon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelEx1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,10 +379,15 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtGiaBan;
         private DevComponents.DotNetBar.ButtonX btnAddDonVi;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxXNguyenLieu;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxXThucDon;
         private DevComponents.DotNetBar.ButtonX btnOk;
         private DevComponents.DotNetBar.ButtonX buttonX3;
         private DevComponents.AdvTree.ColumnHeader NhomDanhMuc;
         private DevComponents.AdvTree.ColumnHeader DanhMuc;
+        private DevComponents.DotNetBar.PanelEx panelEx1;
+        private DevComponents.DotNetBar.Controls.ComboTree cbDanhMucNguyenLieu;
+        private DevComponents.DotNetBar.LabelX labelX5;
+        private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtGiaNguyenLieu;
     }
 }

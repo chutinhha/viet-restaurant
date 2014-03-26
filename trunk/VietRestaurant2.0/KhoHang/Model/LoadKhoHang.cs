@@ -42,7 +42,7 @@ namespace VietRestaurant2._0.KhoHang.Model
         public DataTable LoadDanhMucNhomDanhMucNguyenLieu()
         {
             conn = new SqlConnection(ConnectionString);
-            SqlDataAdapter da = new SqlDataAdapter("select DanhMucNguyenLieu.MaDanhMuc,NhomDanhMucNguyenLieu.TenDanhMuc,DanhMucNguyenLieu.TenDanhMuc from DanhMucNguyenLieu inner join NhomDanhMucNguyenLieu on DanhMucNguyenLieu.MaDanhMucNguyenLieu = NhomDanhMucNguyenLieu.MaDanhMuc ", conn);          
+            SqlDataAdapter da = new SqlDataAdapter("select DanhMucNguyenLieu.MaDanhMuc as 'ID',DanhMucNguyenLieu.TenDanhMuc as 'Danh Mục',NhomDanhMucNguyenLieu.TenDanhMuc as 'Nhóm' from DanhMucNguyenLieu inner join NhomDanhMucNguyenLieu on DanhMucNguyenLieu.MaDanhMucNguyenLieu = NhomDanhMucNguyenLieu.MaDanhMuc ", conn);          
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;

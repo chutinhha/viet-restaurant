@@ -34,7 +34,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietHoaDon));
             this.dgvChiTietHoaDon = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.ST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblBan = new DevComponents.DotNetBar.LabelX();
+            this.lblTongTien = new DevComponents.DotNetBar.LabelX();
+            this.lblKhachHang = new DevComponents.DotNetBar.LabelX();
+            this.lblNgay = new DevComponents.DotNetBar.LabelX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.labelXSDT = new DevComponents.DotNetBar.LabelX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.richTextBoxExDiaChi = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).BeginInit();
+            this.groupPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvChiTietHoaDon
@@ -86,7 +97,7 @@
             this.dgvChiTietHoaDon.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgvChiTietHoaDon.RowTemplate.Height = 32;
             this.dgvChiTietHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(775, 496);
+            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(658, 474);
             this.dgvChiTietHoaDon.TabIndex = 11;
             // 
             // ST
@@ -97,11 +108,183 @@
             this.ST.ReadOnly = true;
             this.ST.Width = 61;
             // 
+            // lblBan
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblBan.Location = new System.Drawing.Point(664, 48);
+            this.lblBan.Name = "lblBan";
+            this.lblBan.Size = new System.Drawing.Size(107, 40);
+            this.lblBan.TabIndex = 12;
+            this.lblBan.Text = "Bàn";
+            // 
+            // lblTongTien
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblTongTien.Location = new System.Drawing.Point(664, 167);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Size = new System.Drawing.Size(107, 40);
+            this.lblTongTien.TabIndex = 12;
+            this.lblTongTien.Text = "Tổng tiền";
+            // 
+            // lblKhachHang
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblKhachHang.Location = new System.Drawing.Point(664, 103);
+            this.lblKhachHang.Name = "lblKhachHang";
+            this.lblKhachHang.Size = new System.Drawing.Size(107, 40);
+            this.lblKhachHang.TabIndex = 12;
+            this.lblKhachHang.Text = "Tên Khách";
+            // 
+            // lblNgay
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblNgay.Location = new System.Drawing.Point(664, 2);
+            this.lblNgay.Name = "lblNgay";
+            this.lblNgay.Size = new System.Drawing.Size(219, 40);
+            this.lblNgay.TabIndex = 12;
+            this.lblNgay.Text = "Ngày";
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelX1.Location = new System.Drawing.Point(831, 167);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(52, 40);
+            this.labelX1.TabIndex = 12;
+            this.labelX1.Text = "VNĐ";
+            // 
+            // groupPanel1
+            // 
+            this.groupPanel1.BackColor = System.Drawing.Color.White;
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.richTextBoxExDiaChi);
+            this.groupPanel1.Controls.Add(this.labelXSDT);
+            this.groupPanel1.Controls.Add(this.labelX4);
+            this.groupPanel1.Controls.Add(this.labelX2);
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.groupPanel1.Location = new System.Drawing.Point(676, 213);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(200, 263);
+            // 
+            // 
+            // 
+            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 14;
+            this.groupPanel1.Text = "Khách hàng";
+            // 
+            // labelX2
+            // 
+            this.labelX2.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelX2.Location = new System.Drawing.Point(3, 12);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.SingleLineColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelX2.Size = new System.Drawing.Size(47, 40);
+            this.labelX2.TabIndex = 12;
+            this.labelX2.Text = "SĐT:";
+            // 
+            // labelXSDT
+            // 
+            this.labelXSDT.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelXSDT.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelXSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelXSDT.Location = new System.Drawing.Point(42, 12);
+            this.labelXSDT.Name = "labelXSDT";
+            this.labelXSDT.SingleLineColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelXSDT.Size = new System.Drawing.Size(149, 40);
+            this.labelXSDT.TabIndex = 12;
+            this.labelXSDT.Text = "0";
+            // 
+            // labelX4
+            // 
+            this.labelX4.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelX4.Location = new System.Drawing.Point(3, 75);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.SingleLineColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelX4.Size = new System.Drawing.Size(64, 40);
+            this.labelX4.TabIndex = 12;
+            this.labelX4.Text = "Địa chỉ:";
+            // 
+            // richTextBoxExDiaChi
+            // 
+            // 
+            // 
+            // 
+            this.richTextBoxExDiaChi.BackgroundStyle.Class = "RichTextBoxBorder";
+            this.richTextBoxExDiaChi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.richTextBoxExDiaChi.Location = new System.Drawing.Point(3, 111);
+            this.richTextBoxExDiaChi.Name = "richTextBoxExDiaChi";
+            this.richTextBoxExDiaChi.Size = new System.Drawing.Size(188, 120);
+            this.richTextBoxExDiaChi.TabIndex = 13;
+            // 
             // ChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 500);
+            this.ClientSize = new System.Drawing.Size(888, 478);
+            this.Controls.Add(this.groupPanel1);
+            this.Controls.Add(this.lblNgay);
+            this.Controls.Add(this.lblKhachHang);
+            this.Controls.Add(this.labelX1);
+            this.Controls.Add(this.lblTongTien);
+            this.Controls.Add(this.lblBan);
             this.Controls.Add(this.dgvChiTietHoaDon);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -109,6 +292,7 @@
             this.Text = "ChiTietHoaDon";
             this.Load += new System.EventHandler(this.ChiTietHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).EndInit();
+            this.groupPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -117,5 +301,15 @@
 
         private DevComponents.DotNetBar.Controls.DataGridViewX dgvChiTietHoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ST;
+        private DevComponents.DotNetBar.LabelX lblBan;
+        private DevComponents.DotNetBar.LabelX lblTongTien;
+        private DevComponents.DotNetBar.LabelX lblKhachHang;
+        private DevComponents.DotNetBar.LabelX lblNgay;
+        private DevComponents.DotNetBar.LabelX labelX1;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.Controls.RichTextBoxEx richTextBoxExDiaChi;
+        private DevComponents.DotNetBar.LabelX labelXSDT;
+        private DevComponents.DotNetBar.LabelX labelX4;
     }
 }
