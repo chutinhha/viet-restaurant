@@ -33,6 +33,7 @@ namespace VietRestaurant2._0.HoaDon.model
             da.Fill(dt);
             return dt;
         }
+       
         public DataTable LoadHoaDonChuaThanhToan()
         {
             conn = new SqlConnection(ConnectionString);
@@ -79,5 +80,34 @@ namespace VietRestaurant2._0.HoaDon.model
             da.Fill(dt);
             return dt;
         }
+        public DataTable LoadChiTietHoaDonTheoMaHoaDon(int MaHoaDon)
+        {
+
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("select TenMon as 'Tên',SoLuong as 'Số lượng',DonVi as 'Đơn vị',Gia as 'Giá',GiamGia as 'Giảm giá',TongTien as 'Tổng tiền' from ChiTietHoaDonBanHang where MaHoaDon = @MaHoaDon ", conn);
+            da.SelectCommand.Parameters.AddWithValue("@MaHoaDon", MaHoaDon);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        public DataTable LoadHoaDonTheoMaHoaDon(int MaHoaDon)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from HoaDonBanHang where MaHoaDon = @MaHoaDon ", conn);
+            da.SelectCommand.Parameters.AddWithValue("@MaHoaDon", MaHoaDon);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        public DataTable LoadHoaDonNhapHangTheoMaHoaDon(int MaHoaDon)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from HoaDonNhapHang where MaHoaDon = @MaHoaDon ", conn);
+            da.SelectCommand.Parameters.AddWithValue("@MaHoaDon", MaHoaDon);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
     }
 }

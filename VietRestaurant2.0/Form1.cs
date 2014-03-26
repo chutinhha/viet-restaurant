@@ -28,7 +28,6 @@ namespace VietRestaurant2._0
         private void metroTabItemThucDon_Click(object sender, EventArgs e)
         {
             LoadTreeViewThucDon();
-           
             LoadDataGridViewThucDon();
         }
 
@@ -566,6 +565,7 @@ namespace VietRestaurant2._0
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
+            KiemTraHoaDon = 2;
             HoaDon.model.Load load = new HoaDon.model.Load();
             DataTable dt = load.LoadHoaDonNhapHang(dateTimeInput1.Value,dateTimeInput2.Value);
             loadDataHoaDon(dt);
@@ -644,8 +644,21 @@ namespace VietRestaurant2._0
             try
             {
                 int maHoaDon = Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells[1].Value.ToString());
-                HoaDon.ChiTietHoaDon hd = new HoaDon.ChiTietHoaDon(maHoaDon);
-                hd.ShowDialog();
+                if (KiemTraHoaDon == 1)
+                {
+                   
+                    HoaDon.ChiTietHoaDon hd = new HoaDon.ChiTietHoaDon(maHoaDon,KiemTraHoaDon);
+                    hd.ShowDialog();
+                }
+                else if(KiemTraHoaDon == 2)
+                {
+                   
+                    HoaDon.ChiTietHoaDon hd = new HoaDon.ChiTietHoaDon(maHoaDon,2);
+                    hd.ShowDialog();
+                }
+                
+                
+                
             }
             catch (Exception)
             {
@@ -1220,10 +1233,21 @@ namespace VietRestaurant2._0
           
             }
         }
+        int KiemTraHoaDon = 0;
         private void buttonX1_Click(object sender, EventArgs e)
         {
             BanHang.Model.Load load = new BanHang.Model.Load();
-            DataTable dt = load.LoadHoaDonBanHang(dateTimeInput1.Value, dateTimeInput2.Value);
+            DataTable dt = new DataTable(); ;
+            KiemTraHoaDon = 1;
+            if (!checkBoxX2.Checked)
+            {
+                dt = load.LoadHoaDonBanHang(dateTimeInput1.Value, dateTimeInput2.Value);
+            }
+            else
+            {
+                dt = load.LoadHoaDonBanHangNo(dateTimeInput1.Value, dateTimeInput2.Value);
+            }
+           
             loadDataHoaDon(dt);
             lblHoaDon.Text = dt.Rows.Count.ToString();
             int Tong = 0;
@@ -1516,5 +1540,6 @@ namespace VietRestaurant2._0
             BanHang.Model.Update update = new BanHang.Model.Update();
             update.LayHangTrongKho(MaMonAn, SoLuong);
         }
+
     }
 }

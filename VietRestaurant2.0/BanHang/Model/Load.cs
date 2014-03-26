@@ -42,6 +42,17 @@ namespace VietRestaurant2._0.BanHang.Model
             return dt;
         
         }
+        public DataTable LoadHoaDonBanHangNo(DateTime date1, DateTime date2)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter(" select MaHoaDon,ThoiGian as 'Thời gian',TenViTri as 'Vị trí',DichVu as 'Dịch vụ',GiamGia as 'Giảm giá',VAT as 'VAT', TongTien as 'Tổng tiền',ThanhToan as 'Thanh toán',NhanVienThanhToan as 'Nhân viên Thanh Toán',GhiChu as 'Ghi chú',TenKhachHang as KháchHàng  from HoaDonBanHang where TinhTrangThanhToan = 'true' and TrangThai = 'false' and ThoiGian BETWEEN @Date1 and @Date2 ", conn);
+            da.SelectCommand.Parameters.AddWithValue("@Date1", date1);
+            da.SelectCommand.Parameters.AddWithValue("@Date2", date2);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+
+        }
         public DataTable LoadKhuVucTheoMaBanAn(int MaBan)
         {
             conn = new SqlConnection(ConnectionString);
@@ -82,6 +93,15 @@ namespace VietRestaurant2._0.BanHang.Model
         {
             conn = new SqlConnection(ConnectionString);
             SqlDataAdapter da = new SqlDataAdapter("select MaKhachHang as 'ID',TenKhachHang as 'Tên',DiaChi as 'Địa chỉ',DienThoai as 'SĐT' from KhachHang", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        public DataTable LoadKhachHangTheoMaKhach(int MaKhachHang)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("select TenKhachHang as 'Tên',DiaChi as 'Địa chỉ',DienThoai as 'SĐT' from KhachHang where MaKhachHang = @MaKhachHang", conn);
+            da.SelectCommand.Parameters.AddWithValue("@MaKhachHang", MaKhachHang);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
