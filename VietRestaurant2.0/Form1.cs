@@ -1541,5 +1541,84 @@ namespace VietRestaurant2._0
             update.LayHangTrongKho(MaMonAn, SoLuong);
         }
 
+        private void metroTabItemNhanVien_Click(object sender, EventArgs e)
+        {
+           LoaddgvNhanVien();
+        }
+        int SuaXoaNhanVien = 0;
+        public void LoaddgvNhanVien()
+        {
+            NhanVien.Model.Load load = new NhanVien.Model.Load();
+            dgvNhanVien.DataSource = load.LoadNhanVien();
+            dgvNhanVien.Columns[1].Visible = false;
+            dgvNhanVien.Columns[6].Visible = false;
+
+            for (int i = 0; i < dgvNhanVien.Rows.Count; i++)
+            {
+
+                dgvNhanVien.Rows[i].Cells["STTT"].Value = i + 1;
+
+            }
+            if (SuaXoaNhanVien == 0)
+            {
+                AddSuaXoaNhanVien();
+
+            }
+            else
+            {
+                dgvNhanVien.Columns.Remove("Sua");
+                dgvNhanVien.Columns.Remove("Xoa");
+                AddSuaXoaNhanVien();
+            }
+            foreach (DataGridViewRow row in dgvNhanVien.Rows)
+            {
+                row.Cells["Sua"].Value = "Sửa";
+                row.Cells["Xoa"].Value = "Xóa";
+            }
+        }
+
+        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int IDNhanVien = Convert.ToInt32(dgvNhanVien.SelectedRows[0].Cells[1].Value.ToString());
+            if (e.ColumnIndex == dgvNhanVien.Columns["Sua"].Index && e.RowIndex >= 0)
+            {
+               
+                NhanVien.SuaNhanVien sua = new NhanVien.SuaNhanVien(IDNhanVien);
+                sua.ShowDialog();
+                LoaddgvNhanVien();
+            }
+            else if (e.ColumnIndex == dgvNhanVien.Columns["Xoa"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn không", "Xóa", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    NhanVien.Model.Delete delete = new NhanVien.Model.Delete();
+                    delete.DeleteNhanVien(IDNhanVien);
+                    LoaddgvNhanVien();
+                }
+            }
+        }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            NhanVien.Model.ThemNhanVien them = new NhanVien.Model.ThemNhanVien();
+            them.ShowDialog();
+            
+            LoaddgvNhanVien();
+        }
+      
+        public void AddSuaXoaNhanVien()
+        {
+            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn btnColum = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            btnColum.HeaderText = "Sửa";
+            btnColum.Text = "Sửa";
+            btnColum.Name = "Sua";
+            dgvNhanVien.Columns.Add(btnColum);
+            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn btnColum1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            btnColum1.HeaderText = "Xóa";
+            btnColum1.Text = "Xóa";
+            btnColum1.Name = "Xoa";
+            dgvNhanVien.Columns.Add(btnColum1);
+            SuaXoaNhanVien = 1;
+        }
     }
 }

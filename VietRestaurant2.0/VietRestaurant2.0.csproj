@@ -215,6 +215,22 @@
     <Compile Include="KhoHang\ThemNhomDanhMuc.Designer.cs">
       <DependentUpon>ThemNhomDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\Model\Delete.cs" />
+    <Compile Include="NhanVien\Model\Insert.cs" />
+    <Compile Include="NhanVien\Model\Load.cs" />
+    <Compile Include="NhanVien\ThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\ThemNhanVien.Designer.cs">
+      <DependentUpon>ThemNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Model\Update.cs" />
+    <Compile Include="NhanVien\SuaNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\SuaNhanVien.Designer.cs">
+      <DependentUpon>SuaNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -252,6 +268,7 @@
     <Compile Include="ThemMon.Designer.cs">
       <DependentUpon>ThemMon.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThemNhanVien.cs" />
     <Compile Include="ThemNhomDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +349,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KhoHang\ThemNhomDanhMuc.resx">
       <DependentUpon>ThemNhomDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\SuaNhanVien.resx">
+      <DependentUpon>SuaNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\ThemNhanVien.resx">
+      <DependentUpon>ThemNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
