@@ -1620,5 +1620,83 @@ namespace VietRestaurant2._0
             dgvNhanVien.Columns.Add(btnColum1);
             SuaXoaNhanVien = 1;
         }
+
+        private void metroTabItemKhacHang_Click(object sender, EventArgs e)
+        {
+            LoaddgvKhachHang();
+        }
+        int SuaXoaKhachHang = 0;
+        public void LoaddgvKhachHang()
+        {
+            KhachHang.Model.Load load = new KhachHang.Model.Load();
+            dgvKhachHang.DataSource = load.LoadKhachHang();
+            dgvKhachHang.Columns[1].Visible = false;
+
+            for (int i = 0; i < dgvKhachHang.Rows.Count; i++)
+            {
+
+                dgvKhachHang.Rows[i].Cells["STT2"].Value = i + 1;
+
+            }
+            if (SuaXoaKhachHang == 0)
+            {
+                AddSuaXoaKhachHang();
+            }
+            else
+            {
+                dgvKhachHang.Columns.Remove("Sua");
+                dgvKhachHang.Columns.Remove("Xoa");
+                AddSuaXoaKhachHang();
+            }
+            foreach (DataGridViewRow row in dgvKhachHang.Rows)
+            {
+                row.Cells["Sua"].Value = "Sửa";
+                row.Cells["Xoa"].Value = "Xóa";
+            }
+        }
+        public void AddSuaXoaKhachHang()
+        {
+            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn btnColum = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            btnColum.HeaderText = "Sửa";
+            btnColum.Text = "Sửa";
+            btnColum.Name = "Sua";
+            dgvKhachHang.Columns.Add(btnColum);
+            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn btnColum1 = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+            btnColum1.HeaderText = "Xóa";
+            btnColum1.Text = "Xóa";
+            btnColum1.Name = "Xoa";
+            dgvKhachHang.Columns.Add(btnColum1);
+            SuaXoaKhachHang = 1;
+        }
+
+        private void btnThemKhachHang_Click(object sender, EventArgs e)
+        {
+            KhachHang.ThemKhachHang them = new KhachHang.ThemKhachHang();
+            them.ShowDialog();
+            LoaddgvKhachHang();
+        }
+
+        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int IDKhachHang = Convert.ToInt32(dgvKhachHang.SelectedRows[0].Cells[1].Value.ToString());
+            if (e.ColumnIndex == dgvKhachHang.Columns["Sua"].Index && e.RowIndex >= 0)
+            {
+
+                KhachHang.SuaKhachHang sua = new KhachHang.SuaKhachHang(IDKhachHang);
+                sua.ShowDialog();
+                LoaddgvKhachHang();
+            }
+            else if (e.ColumnIndex == dgvKhachHang.Columns["Xoa"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn không", "Xóa", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    KhachHang.Model.Delete delete = new KhachHang.Model.Delete();
+                    delete.DeleteKhachHang(IDKhachHang);
+                    LoaddgvKhachHang();
+                }
+            }
+        }
+
     }
 }

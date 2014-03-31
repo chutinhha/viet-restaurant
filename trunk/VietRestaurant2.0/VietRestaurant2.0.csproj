@@ -162,6 +162,22 @@
       <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDon\Model\Load.cs" />
+    <Compile Include="KhachHang\Model\Delete.cs" />
+    <Compile Include="KhachHang\Model\Insert.cs" />
+    <Compile Include="KhachHang\Model\Load.cs" />
+    <Compile Include="KhachHang\Model\Update.cs" />
+    <Compile Include="KhachHang\SuaKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang\SuaKhachHang.Designer.cs">
+      <DependentUpon>SuaKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\ThemKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang\ThemKhachHang.Designer.cs">
+      <DependentUpon>ThemKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhoHang\DieuChinhTonKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDon\ChiTietHoaDon.resx">
       <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang\SuaKhachHang.resx">
+      <DependentUpon>SuaKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang\ThemKhachHang.resx">
+      <DependentUpon>ThemKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhoHang\DieuChinhTonKho.resx">
       <DependentUpon>DieuChinhTonKho.cs</DependentUpon>
