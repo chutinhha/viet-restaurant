@@ -1698,5 +1698,65 @@ namespace VietRestaurant2._0
             }
         }
 
+        private void metroTabItemThuChi_Click(object sender, EventArgs e)
+        {
+            LoadThuChi();
+        }
+        //tính tổng tiền thu chi
+        public int TinhTongTienThuChi(DataGridView ThuChi)
+        {
+            int Tien = 0;
+            for (int i = 0; i < ThuChi.Rows.Count; i++)
+            {
+                Tien = Tien + Convert.ToInt32(ThuChi.Rows[i].Cells[4].Value.ToString());
+                
+            }
+            return Tien;
+        }
+        public void LoadThuChi()
+        {
+
+            ThuChi.Model.Load load = new ThuChi.Model.Load();
+            //Load Phieu thu
+            if (checkBoxPhieuThu.Checked != true)
+            {
+                dgvPhieuThu.DataSource = load.LoadPhieuThu(dateTimeNgayDauThuChi.Value, dateTimeNgayCuoiThuChi.Value);
+               
+            }
+            else
+            {
+                dgvPhieuThu.DataSource = load.LoadPhieuThuNo(dateTimeNgayDauThuChi.Value, dateTimeNgayCuoiThuChi.Value);
+            }
+            dgvPhieuThu.Columns[1].Visible = false;
+            lblTongTienPhieuThu.Text = TinhTongTienThuChi(dgvPhieuThu).ToString();
+            for (int i = 0; i < dgvPhieuThu.Rows.Count; i++)
+            {
+                dgvPhieuThu.Rows[i].Cells["STT3"].Value = i + 1;
+            }
+            //Load phieu chi
+            if (checkBoxPhieuChi.Checked != true)
+            {
+                dgvPhieuChi.DataSource = load.LoadPhieuChi(dateTimeNgayDauThuChi.Value, dateTimeNgayCuoiThuChi.Value);
+                
+            }
+            else
+            {
+                dgvPhieuChi.DataSource = load.LoadPhieuChiNo(dateTimeNgayDauThuChi.Value, dateTimeNgayCuoiThuChi.Value);
+            }
+            dgvPhieuChi.Columns[1].Visible = false;
+            lblTongTienPhieuChi.Text = TinhTongTienThuChi(dgvPhieuChi).ToString();
+            for (int i = 0; i < dgvPhieuChi.Rows.Count; i++)
+            {
+
+                dgvPhieuChi.Rows[i].Cells["STT4"].Value = i + 1;
+
+            }
+          
+        }
+        private void btnThuChi_Click(object sender, EventArgs e)
+        {
+            LoadThuChi();
+        }
+
     }
 }
