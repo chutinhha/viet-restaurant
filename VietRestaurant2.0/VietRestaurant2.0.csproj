@@ -294,6 +294,10 @@
     <Compile Include="ThucDon\InsertThucDon.cs" />
     <Compile Include="ThucDon\ModuleThucDon.cs" />
     <Compile Include="ThucDon\UpdateThucDon.cs" />
+    <Compile Include="ThuChi\Model\Delete.cs" />
+    <Compile Include="ThuChi\Model\Insert.cs" />
+    <Compile Include="ThuChi\Model\Load.cs" />
+    <Compile Include="ThuChi\Model\Update.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
