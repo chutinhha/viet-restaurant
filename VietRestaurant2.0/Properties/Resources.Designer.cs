@@ -83,6 +83,16 @@ namespace VietRestaurant2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _001_43 {
+            get {
+                object obj = ResourceManager.GetObject("001_43", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1609635_613086438764653_968972548_n {
             get {
                 object obj = ResourceManager.GetObject("1609635_613086438764653_968972548_n", resourceCulture);
@@ -166,6 +176,16 @@ namespace VietRestaurant2._0.Properties {
         internal static System.Drawing.Bitmap arrow_right_48 {
             get {
                 object obj = ResourceManager.GetObject("arrow_right_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap beer_48 {
+            get {
+                object obj = ResourceManager.GetObject("beer_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +296,16 @@ namespace VietRestaurant2._0.Properties {
         internal static System.Drawing.Bitmap windows_8_pro_start_wallpaper_3_by_brebenel_silviu_d5a2pry {
             get {
                 object obj = ResourceManager.GetObject("windows_8_pro_start_wallpaper_3_by_brebenel_silviu-d5a2pry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wpdda6632f_06 {
+            get {
+                object obj = ResourceManager.GetObject("wpdda6632f_06", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
