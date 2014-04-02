@@ -39,7 +39,7 @@ namespace VietRestaurant2._0
             DevComponents.AdvTree.Node node3 = new DevComponents.AdvTree.Node();
             node3.Text = "Tất cả thực đơn";
             node2.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node3 });
-            node3.Image = global::VietRestaurant2._0.Properties.Resources.folder_48;
+            node3.Image = global::VietRestaurant2._0.Properties.Resources._001_43;
             advTreeThucDon.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node2 });
 
 
@@ -59,7 +59,7 @@ namespace VietRestaurant2._0
                     DevComponents.AdvTree.Node node1 = new DevComponents.AdvTree.Node();
                     node1.Text = dt.Rows[j]["TenDanhMuc"].ToString();
                     node1.Name = dt.Rows[j]["MaDanhMuc"].ToString();
-                    node1.Image = global::VietRestaurant2._0.Properties.Resources.folder_48;
+                    node1.Image = global::VietRestaurant2._0.Properties.Resources._001_43;
                     node.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node1 });
                     }
                 advTreeThucDon.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node });
@@ -312,7 +312,7 @@ namespace VietRestaurant2._0
             DevComponents.AdvTree.Node node3 = new DevComponents.AdvTree.Node();
             node3.Text = "Tất cả kho hàng";
             node2.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node3 });
-            node3.Image = global::VietRestaurant2._0.Properties.Resources.folder_48;
+            node3.Image = global::VietRestaurant2._0.Properties.Resources._001_43;
             advTreeKhoHang.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node2 });
 
            
@@ -332,7 +332,7 @@ namespace VietRestaurant2._0
                     DevComponents.AdvTree.Node node1 = new DevComponents.AdvTree.Node();
                     node1.Text = dt.Rows[j]["TenDanhMuc"].ToString();
                     node1.Name = dt.Rows[j]["MaDanhMuc"].ToString();
-                    node1.Image = global::VietRestaurant2._0.Properties.Resources.folder_48;
+                    node1.Image = global::VietRestaurant2._0.Properties.Resources._001_43;
                     node.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node1 });
                 }
                 advTreeKhoHang.Nodes.AddRange(new DevComponents.AdvTree.Node[] { node });
@@ -1728,7 +1728,7 @@ namespace VietRestaurant2._0
                 dgvPhieuThu.DataSource = load.LoadPhieuThuNo(dateTimeNgayDauThuChi.Value, dateTimeNgayCuoiThuChi.Value);
             }
             dgvPhieuThu.Columns[1].Visible = false;
-            lblTongTienPhieuThu.Text = TinhTongTienThuChi(dgvPhieuThu).ToString();
+            richTextBoxExPhieuThu.Text = TinhTongTienThuChi(dgvPhieuThu).ToString();
             for (int i = 0; i < dgvPhieuThu.Rows.Count; i++)
             {
                 dgvPhieuThu.Rows[i].Cells["STT3"].Value = i + 1;
@@ -1744,7 +1744,7 @@ namespace VietRestaurant2._0
                 dgvPhieuChi.DataSource = load.LoadPhieuChiNo(dateTimeNgayDauThuChi.Value, dateTimeNgayCuoiThuChi.Value);
             }
             dgvPhieuChi.Columns[1].Visible = false;
-            lblTongTienPhieuChi.Text = TinhTongTienThuChi(dgvPhieuChi).ToString();
+            richTextBoxExPhieuChi.Text = TinhTongTienThuChi(dgvPhieuChi).ToString();
             for (int i = 0; i < dgvPhieuChi.Rows.Count; i++)
             {
 
@@ -1757,6 +1757,17 @@ namespace VietRestaurant2._0
         {
             LoadThuChi();
         }
+
+        private void richTextBoxExPhieuThu_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(richTextBoxExPhieuThu);
+        }
+
+        private void richTextBoxExPhieuChi_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(richTextBoxExPhieuChi);
+        }
+       
 
     }
 }
