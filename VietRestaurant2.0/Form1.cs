@@ -1767,7 +1767,22 @@ namespace VietRestaurant2._0
         {
             TachSo(richTextBoxExPhieuChi);
         }
-       
 
+        private void toolStripMenuItemCheBien_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int ID = Convert.ToInt32(dataGridViewXThucDon.SelectedRows[0].Cells[1].Value.ToString());
+                string Name = dataGridViewXThucDon.SelectedRows[0].Cells[2].Value.ToString();
+                ThucDon.CheBien chebien = new ThucDon.CheBien(Name, ID);
+                chebien.ShowDialog();
+            }
+            catch 
+            {
+
+
+            }
+        }
     }
 }

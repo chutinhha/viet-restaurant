@@ -291,7 +291,14 @@
     <Compile Include="ThemNhomDanhMuc.Designer.cs">
       <DependentUpon>ThemNhomDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThucDon\CheBien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThucDon\CheBien.Designer.cs">
+      <DependentUpon>CheBien.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThucDon\InsertThucDon.cs" />
+    <Compile Include="ThucDon\Load.cs" />
     <Compile Include="ThucDon\ModuleThucDon.cs" />
     <Compile Include="ThucDon\UpdateThucDon.cs" />
     <Compile Include="ThuChi\Model\Delete.cs" />
@@ -405,6 +412,9 @@
     <EmbeddedResource Include="ThemNhomDanhMuc.resx">
       <DependentUpon>ThemNhomDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThucDon\CheBien.resx">
+      <DependentUpon>CheBien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
@@ -495,6 +505,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\001_43.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spanner_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
