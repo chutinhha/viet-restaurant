@@ -81,13 +81,12 @@ namespace VietRestaurant2._0.ThucDon
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public void InsertCheBien(int MaMonAn,int MaNguyenLieu,float SoLuong)
+        public void InsertCheBien(int MaMonAn,int MaNguyenLieu)
         {
             conn = new SqlConnection(ConnectionString);
-            SqlCommand cmd = new SqlCommand("insert into CheBien values(@MaMonAn,@MaNguyenLieu,@SoLuong)", conn);
+            SqlCommand cmd = new SqlCommand("insert into CheBien values(@MaMonAn,@MaNguyenLieu,1)", conn);
             cmd.Parameters.AddWithValue("@MaMonAn", MaMonAn);
             cmd.Parameters.AddWithValue("@MaNguyenLieu", MaNguyenLieu);
-            cmd.Parameters.AddWithValue("@SoLuong", SoLuong);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
