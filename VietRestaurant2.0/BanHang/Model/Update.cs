@@ -50,6 +50,7 @@ namespace VietRestaurant2._0.BanHang.Model
             conn.Open();
             int a = cmd.ExecuteNonQuery();
             conn.Close();
+
         }
         public void UpdateGiamGiaMonAn(int MaChiTietHoaDon, float GiamGia)
         {
@@ -252,8 +253,6 @@ namespace VietRestaurant2._0.BanHang.Model
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
-                   
-                    
                 }
             }
             catch 

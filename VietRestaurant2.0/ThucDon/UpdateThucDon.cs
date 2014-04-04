@@ -84,10 +84,20 @@ namespace VietRestaurant2._0.ThucDon
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public void UpdateCheBien(int MaMonAn, int MaNguyenLieu, float SoLuong)
+        public void UpdateCheBienThem(int MaMonAn, int MaNguyenLieu)
         {
             conn = new SqlConnection(ConnectionString);
-            SqlCommand cmd = new SqlCommand("Update CheBien set SoLuong = SoLuong+@SoLuong where MaMonAn = @MaMonAn and MaNguyenLieu = MaNguyenLieu)", conn);
+            SqlCommand cmd = new SqlCommand("Update CheBien set SoLuong = SoLuong+1 where MaMonAn = @MaMonAn and MaNguyenLieu = @MaNguyenLieu", conn);
+            cmd.Parameters.AddWithValue("@MaMonAn", MaMonAn);
+            cmd.Parameters.AddWithValue("@MaNguyenLieu", MaNguyenLieu);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+          public void UpdateCheBienGiam(int MaMonAn, int MaNguyenLieu, float SoLuong)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand("Update CheBien set SoLuong = SoLuong-@SoLuong where MaMonAn = @MaMonAn and MaNguyenLieu = @MaNguyenLieu)", conn);
             cmd.Parameters.AddWithValue("@MaMonAn", MaMonAn);
             cmd.Parameters.AddWithValue("@MaNguyenLieu", MaNguyenLieu);
             cmd.Parameters.AddWithValue("@SoLuong", SoLuong);

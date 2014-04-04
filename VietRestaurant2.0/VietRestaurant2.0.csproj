@@ -297,9 +297,11 @@
     <Compile Include="ThucDon\CheBien.Designer.cs">
       <DependentUpon>CheBien.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThucDon\Delete.cs" />
     <Compile Include="ThucDon\InsertThucDon.cs" />
     <Compile Include="ThucDon\Load.cs" />
     <Compile Include="ThucDon\ModuleThucDon.cs" />
+    <Compile Include="ThucDon\SqlcommandBuilder.cs" />
     <Compile Include="ThucDon\UpdateThucDon.cs" />
     <Compile Include="ThuChi\Model\Delete.cs" />
     <Compile Include="ThuChi\Model\Insert.cs" />
