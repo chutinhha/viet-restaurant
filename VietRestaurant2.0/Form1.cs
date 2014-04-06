@@ -1066,9 +1066,12 @@ namespace VietRestaurant2._0
             {
                 if (dataGridViewXListMonAn.SelectedRows[0].Cells[1].Value.ToString() != null)
                 {
-                    BanHang.Giam giam = new BanHang.Giam(dataGridViewXListMonAn.SelectedRows[0].Cells[1].Value.ToString());
+                    int SoLuong = Convert.ToInt32(dataGridViewXListMonAn.SelectedRows[0].Cells[4].Value.ToString());
+                    BanHang.Giam giam = new BanHang.Giam(dataGridViewXListMonAn.SelectedRows[0].Cells[1].Value.ToString(),SoLuong);
                     giam.ShowDialog();
                     LoadChiTietHoaDon(MaHoaDon);
+                    LoadSoLuongSanPham();
+                    loadThucDon();
                 }
             }
             catch (Exception)
@@ -1450,45 +1453,48 @@ namespace VietRestaurant2._0
                 string Ten = dgvThucDon.SelectedRows[0].Cells[1].Value.ToString();
                 float SoLuong =  1;
                 string DonVi = dgvThucDon.SelectedRows[0].Cells[2].Value.ToString();
-                float Gia = float.Parse(dgvThucDon.SelectedRows[0].Cells[3].Value.ToString());                float GiamGia = 0;
+                float Gia = float.Parse(dgvThucDon.SelectedRows[0].Cells[3].Value.ToString());      
+                float GiamGia = 0;
                 float TongTien = Gia * SoLuong - GiamGia;
-                if (MaHoaDon != 0)
+                if (LayHangTrongKho(ID, SoLuong) == 1)
                 {
-                    //neu chua co mon thi insert con neu khong thi update
-                    //Kiem tra mon an co cung maMonAn va MaHoaDon
-                    HoaDon.model.Load load = new HoaDon.model.Load();
-                    DataTable dt = load.LoadMonAn(MaHoaDon, ID);
-                    if (dt.Rows.Count == 0)
+                    if (MaHoaDon != 0)
                     {
-                        //InsertMonAn
-                        BanHang.Model.Insert insert = new BanHang.Model.Insert();
-                        insert.InsertHoaDonChiTiet(MaHoaDon, ID, Ten, SoLuong, DonVi, Gia, GiamGia, TongTien);
-                        LoadChiTietHoaDon(MaHoaDon);
+                        //neu chua co mon thi insert con neu khong thi update
+                        //Kiem tra mon an co cung maMonAn va MaHoaDon
+                        HoaDon.model.Load load = new HoaDon.model.Load();
+                        DataTable dt = load.LoadMonAn(MaHoaDon, ID);
+                        if (dt.Rows.Count == 0)
+                        {
+                            //InsertMonAn
+                            BanHang.Model.Insert insert = new BanHang.Model.Insert();
+                            insert.InsertHoaDonChiTiet(MaHoaDon, ID, Ten, SoLuong, DonVi, Gia, GiamGia, TongTien);
+                            LoadChiTietHoaDon(MaHoaDon);
 
-                    }
-                    else
-                    {
-                        //Update
-                        int MaChiTietHoaDon = Convert.ToInt32(dt.Rows[0][0].ToString());
+                        }
+                        else
+                        {
+                            //Update
+                            int MaChiTietHoaDon = Convert.ToInt32(dt.Rows[0][0].ToString());
 
-                        BanHang.Model.Update update = new BanHang.Model.Update();
-                        update.UpdateChiTietHoaDon(MaChiTietHoaDon, SoLuong, GiamGia);
-                        LoadChiTietHoaDon(MaHoaDon);
-                    }
-                    resetThucDon();
-                    LayHangTrongKho(ID, SoLuong);
-                    LoadSoLuongSanPham();
-                    loadThucDon();
+                            BanHang.Model.Update update = new BanHang.Model.Update();
+                            update.UpdateChiTietHoaDon(MaChiTietHoaDon, SoLuong, GiamGia);
+                            LoadChiTietHoaDon(MaHoaDon);
+                        }
+                }
                 }
                 else
                 {
-                    MessageBox.Show("Bạn chưa chọn bàn");
+                    MessageBox.Show("Bạn chưa chọn hàng hoặc hết đồ");
                 }
             }
             catch (Exception)
             {
 
             }
+            LoadSoLuongSanPham();
+            loadThucDon();
+            resetThucDon();
         }
 
         private void checkBoxX1_CheckedChanged(object sender, EventArgs e)
@@ -1535,10 +1541,11 @@ namespace VietRestaurant2._0
             BanHang.Model.Update update = new BanHang.Model.Update();
             update.UpdateSoLuongMonAn();
         }
-        public void LayHangTrongKho(int MaMonAn, float SoLuong)
+        public int LayHangTrongKho(int MaMonAn, float SoLuong)
         {
             BanHang.Model.Update update = new BanHang.Model.Update();
-            update.LayHangTrongKho(MaMonAn, SoLuong);
+            return update.LayHangTrongKho(MaMonAn, SoLuong);
+            
         }
 
         private void metroTabItemNhanVien_Click(object sender, EventArgs e)

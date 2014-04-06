@@ -26,14 +26,22 @@ namespace VietRestaurant2._0.BanHang
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
+            
             int SoLuong = Convert.ToInt32(numericUpDown1.Value.ToString());
              BanHang.Model.Update update = new Model.Update();
-             update.UpdateThemSoLuongMonAn(MaHDCT, SoLuong);
-            HoaDon.model.Load load = new HoaDon.model.Load();
-            DataTable dt = load.LoadChiTietHoaDonTheoMaChiTietHoaDon(MaHDCT);
-           int MaMonAn = Convert.ToInt32( dt.Rows[0][1].ToString());
-           update.LayHangTrongKho(MaMonAn,SoLuong);
-             this.Close();
+             HoaDon.model.Load load = new HoaDon.model.Load();
+             DataTable dt = load.LoadChiTietHoaDonTheoMaChiTietHoaDon(MaHDCT);
+             int MaMonAn = Convert.ToInt32(dt.Rows[0][1].ToString());
+             if (update.LayHangTrongKho(MaMonAn, SoLuong) == 1)
+             {
+                 update.UpdateThemSoLuongMonAn(MaHDCT, SoLuong);
+                 this.Close();
+             }
+             else
+             {
+                 MessageBox.Show("Không đủ nguyên liệu");
+             }
+             
         }
     }
 }
