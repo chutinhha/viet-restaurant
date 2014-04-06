@@ -215,7 +215,62 @@ namespace VietRestaurant2._0.BanHang.Model
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public void LayHangTrongKho(int MaMonAn,float SoLuong)
+        public int LayHangTrongKho(int MaMonAn,float SoLuong)
+        {
+            int kiemtra = 0;
+            try
+            {
+                //load cac nguyen lieu trong che bien
+                conn = new SqlConnection(ConnectionString);
+                SqlDataAdapter da = new SqlDataAdapter(" select CheBien.ID,CheBien.MaMonAn,CheBien.MaNguyenLieu,CheBien.SoLuong,NguyenLieu.SoLuong from CheBien inner join NguyenLieu on CheBien.MaNguyenLieu = NguyenLieu.MaNguyenLieu where MaMonAn = @MaMonAn", conn);
+                da.SelectCommand.Parameters.AddWithValue("@MaMonAn", MaMonAn);
+                DataTable dt = new DataTable();
+                da.Fill(dt); // Nguyen lieu cua 1 mon
+                string query=""; 
+                SqlTransaction transaction;
+                conn.Open();
+                transaction = conn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(query,conn);
+                cmd.Transaction = transaction;
+                int count = 0;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    float SoLuongNguyenLieu = SoLuong * float.Parse(dt.Rows[i][3].ToString());
+                    //kiem tra so luong nguyen lieu trong kho
+                  
+                    float SoLuongTon = float.Parse(dt.Rows[i][4].ToString());
+                    if (SoLuongTon >= SoLuongNguyenLieu)
+                    {
+                        cmd.Parameters.Clear();
+                        query = "update NguyenLieu set SoLuong = SoLuong-@SoLuong where MaNguyenLieu = @MaNguyenLieu ";
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@SoLuong", SoLuongNguyenLieu);
+                        cmd.Parameters.AddWithValue("@MaNguyenLieu", Convert.ToInt32(dt.Rows[i][2].ToString()));
+                        cmd.ExecuteNonQuery();
+                        count++;
+                    }
+                  
+                }
+                if (count < dt.Rows.Count)
+                {
+                    transaction.Rollback();
+                    
+                }
+                else
+                {
+                    transaction.Commit();
+                    kiemtra = 1;
+                }
+                
+            }
+            catch 
+            {
+              
+            }
+            return kiemtra;
+          
+        }
+        public void TraHangTrongKho(int MaMonAn, float SoLuong)
         {
             try
             {
@@ -228,38 +283,21 @@ namespace VietRestaurant2._0.BanHang.Model
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     float SoLuongNguyenLieu = SoLuong * float.Parse(dt.Rows[i][3].ToString());
-                    //kiem tra so luong nguyen lieu trong kho
-                    SqlDataAdapter da1 = new SqlDataAdapter(" select * from NguyenLieu where MaNguyenLieu = @MaNguyenLieu", conn);
-                    da1.SelectCommand.Parameters.AddWithValue("@MaNguyenLieu", Convert.ToInt32(dt.Rows[i][2].ToString()));
-                    DataTable dt1 = new DataTable();
-                    da1.Fill(dt1);
-                    float SoLuongTon = float.Parse(dt1.Rows[0][2].ToString());
-                    if (SoLuongTon > SoLuongNguyenLieu)
-                    {
-                        string query = "update NguyenLieu set SoLuong = SoLuong-@SoLuong where MaNguyenLieu = @MaNguyenLieu ";
+                        string query = "update NguyenLieu set SoLuong = SoLuong+@SoLuong where MaNguyenLieu = @MaNguyenLieu ";
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@SoLuong", SoLuongNguyenLieu);
                         cmd.Parameters.AddWithValue("@MaNguyenLieu", Convert.ToInt32(dt.Rows[i][2].ToString()));
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
-                    }
-                    else
-                    {
-                        string query = "update NguyenLieu set SoLuong = 0 where MaNguyenLieu = @MaNguyenLieu ";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@MaNguyenLieu", Convert.ToInt32(dt.Rows[i][2].ToString()));
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
+                   
                 }
             }
-            catch 
+            catch
             {
-               
+
             }
-          
+
         }
     }
 }
