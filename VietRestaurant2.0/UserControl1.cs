@@ -18,5 +18,15 @@ namespace VietRestaurant2._0
         {
             InitializeComponent();
         }
+
+        private void MetroBanHang_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MetroQuanLiThucDon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
