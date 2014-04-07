@@ -113,6 +113,7 @@
             this.MetroBanHang.TitleText = "Bán Hàng\r\n";
             this.MetroBanHang.TitleTextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.MetroBanHang.TitleTextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.MetroBanHang.Click += new System.EventHandler(this.MetroBanHang_Click);
             // 
             // MetroQuanLiThucDon
             // 
@@ -129,6 +130,7 @@
             this.MetroQuanLiThucDon.TitleText = "Quản lí thực đơn";
             this.MetroQuanLiThucDon.TitleTextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.MetroQuanLiThucDon.TitleTextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.MetroQuanLiThucDon.Click += new System.EventHandler(this.MetroQuanLiThucDon_Click);
             // 
             // MetroQuanLiHoaDon
             // 
