@@ -1858,32 +1858,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void contextMenuStripThucDon_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void contextMenuStripDanhMucThucDon_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void metroShell1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void metroTabPanel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelEx3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reflectionLabel2_Click(object sender, EventArgs e)
         {
 
         }
@@ -1898,117 +1873,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void labelX19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelExGhiNo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelXID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBoxExDiaChi_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxXSDT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxXKhachHang_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void bubbleBar1_ButtonClick(object sender, ClickEventArgs e)
-        {
-
-        }
-
-        private void labelX17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBoxExGhiChu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblViTri_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblThoiGian_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reflectionLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelEx2_Click(object sender, EventArgs e)
         {
 
         }
@@ -2018,37 +1883,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void lblMaMon_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridViewXListMonAn_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void contextMenuStripHoaDonChiTiet_Opening(object sender, CancelEventArgs e)
         {
 
         }
@@ -2063,22 +1898,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void contextMenuStripBanAn_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void metroTabPanel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void contextMenuStripHoaDon_Opening(object sender, CancelEventArgs e)
         {
 
         }
@@ -2093,31 +1913,6 @@ namespace VietRestaurant2._0
 
         }
 
-        private void checkBoxX2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblHoaDon_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void labelX2_Click(object sender, EventArgs e)
         {
 
@@ -2128,77 +1923,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void dateTimeInput2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimeInput1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void metroTabPanel8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBoxPhieuChi_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBoxPhieuThu_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimeNgayCuoiThuChi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimeNgayDauThuChi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reflectionLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reflectionLabel3_Click(object sender, EventArgs e)
         {
 
         }
@@ -2208,22 +1933,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void dgvPhieuChi_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvPhieuThu_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void metroTabPanel7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -2233,22 +1943,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void metroTabPanel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewXThucDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void advTreeThucDon_Click(object sender, EventArgs e)
         {
 
         }
@@ -2258,37 +1953,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void dataGridViewXKhoHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void contextMenuStripNguyenLieu_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void advTreeKhoHang_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void contextMenuStripDanhMucNguyenLieu_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void metroAppButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void metroTabItemThongKe_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTop_Click(object sender, EventArgs e)
         {
 
         }
