@@ -1977,5 +1977,74 @@ namespace VietRestaurant2._0
         {
 
         }
+
+       
+
+        private void btnTKTN_Click(object sender, EventArgs e)
+        {
+
+            BanHang.Model.Load load = new BanHang.Model.Load();
+            DataTable dt = new DataTable();
+            dt = load.LoadHoaDonBanHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+            ThongKe.CrystalReportThongKeDoanhThuTungNgay cry = new ThongKe.CrystalReportThongKeDoanhThuTungNgay();
+            cry.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cry;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void btnTKTT_Click(object sender, EventArgs e)
+        {
+            BanHang.Model.Load load = new BanHang.Model.Load();
+            DataTable dt = new DataTable();
+            dt = load.LoadHoaDonBanHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+            CrystalReportThongKeDoanhThuTheoThang cry = new CrystalReportThongKeDoanhThuTheoThang();
+            cry.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cry;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void btnTKTheoTuan_Click(object sender, EventArgs e)
+        {
+            BanHang.Model.Load load = new BanHang.Model.Load();
+            DataTable dt = new DataTable();
+            dt = load.LoadHoaDonBanHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+            ThongKe.CrystalReportThongKeDoanhThuTheoTuan cry = new ThongKe.CrystalReportThongKeDoanhThuTheoTuan();
+            cry.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cry;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void btnThongKeChiPhiTheoNgay_Click(object sender, EventArgs e)
+        {
+            HoaDon.model.Load load = new HoaDon.model.Load();
+            DataTable dt = new DataTable();
+            dt = load.LoadHoaDonNhapHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+            ThongKe.CrystalReportThongKeChiPhiTheoNgay cry = new ThongKe.CrystalReportThongKeChiPhiTheoNgay();
+            cry.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cry;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void btnThongKeChiPhiTheoTuan_Click(object sender, EventArgs e)
+        {
+            HoaDon.model.Load load = new HoaDon.model.Load();
+            DataTable dt = new DataTable();
+            dt = load.LoadHoaDonNhapHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+            ThongKe.CrystalReportThongKeChiPhiTheoTuan cry = new ThongKe.CrystalReportThongKeChiPhiTheoTuan();
+            cry.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cry;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void btnThongKeChiPhiTheoThang_Click(object sender, EventArgs e)
+        {
+            HoaDon.model.Load load = new HoaDon.model.Load();
+            DataTable dt = new DataTable();
+            dt = load.LoadHoaDonNhapHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+            ThongKe.CrystalReportThongKeChiPhiTheoThang cry = new ThongKe.CrystalReportThongKeChiPhiTheoThang();
+            cry.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cry;
+            crystalReportViewer1.Refresh();
+        }
     }
 }

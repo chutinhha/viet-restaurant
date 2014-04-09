@@ -24,6 +24,17 @@ namespace VietRestaurant2._0.HoaDon.model
             da.Fill(dt);
             return dt;
         }
+          public DataTable LoadHoaDonNhapHangThongKe(DateTime date1,DateTime date2)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("select ThoiGian,TongTien from HoaDonNhapHang where ThoiGian BETWEEN @Date1 and @Date2", conn);
+            da.SelectCommand.Parameters.AddWithValue("@Date1",date1);
+            da.SelectCommand.Parameters.AddWithValue("@Date2", date2);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+       
         public DataTable LoadChiTietHoaDonNhapHang(int MaHoaDon)
         {
             conn = new SqlConnection(ConnectionString);

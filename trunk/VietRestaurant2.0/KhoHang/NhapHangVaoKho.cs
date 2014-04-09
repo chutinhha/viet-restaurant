@@ -26,7 +26,7 @@ namespace VietRestaurant2._0.KhoHang
         {
             AutoCompleteText();
             LoadKhoHang();
-            KhoHang.Model.BangTam bangTam = new Model.BangTam();
+           
              dtTam = new DataTable();
              dtTam.Columns.Add("ID",typeof(int));
              dtTam.Columns.Add("Tên",typeof(string));
@@ -191,7 +191,7 @@ namespace VietRestaurant2._0.KhoHang
                 float Gia = a;
                 checkso(txtTien);
                 float ThanhTien = a;
-                KhoHang.Model.BangTam tam = new Model.BangTam();
+                
                 int ID = Convert.ToInt32(lblID.Text);
                 float SoLuong = float.Parse(txtSoLuong.Text);
                 dtTam.Rows.Add(ID, lblName.Text, lblDonVi.Text, SoLuong, Gia, ThanhTien);
