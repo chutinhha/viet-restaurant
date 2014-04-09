@@ -154,6 +154,12 @@
     <Compile Include="BanHang\XoaKhuVuc.Designer.cs">
       <DependentUpon>XoaKhuVuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReportThongKeDoanhThuTheoThang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportThongKeDoanhThuTheoThang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,7 +201,6 @@
     <Compile Include="KhoHang\DieuChinhTonKho.Designer.cs">
       <DependentUpon>DieuChinhTonKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="KhoHang\Model\BangTam.cs" />
     <Compile Include="KhoHang\Model\DeleteKhoHang.cs" />
     <Compile Include="KhoHang\Model\InsertKho.cs" />
     <Compile Include="KhoHang\Model\LoadKhoHang.cs" />
@@ -302,10 +307,34 @@
     <Compile Include="ThemNhomDanhMuc.Designer.cs">
       <DependentUpon>ThemNhomDanhMuc.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKeDoanhThuTungNgay.cs">
+    <Compile Include="ThongKe\CrystalReportThongKeChiPhiTheoNgay.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ThongKeDoanhThuTungNgay.rpt</DependentUpon>
+      <DependentUpon>CrystalReportThongKeChiPhiTheoNgay.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKe\CrystalReportThongKeChiPhiTheoThang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportThongKeChiPhiTheoThang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKe\CrystalReportThongKeChiPhiTheoTuan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportThongKeChiPhiTheoTuan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKe\CrystalReportThongKeDoanhThuTheoTuan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportThongKeDoanhThuTheoTuan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKe\CrystalReportThongKeDoanhThuTungNgay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportThongKeDoanhThuTungNgay.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ThucDon\CheBien.cs">
@@ -362,6 +391,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BanHang\XoaKhuVuc.resx">
       <DependentUpon>XoaKhuVuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportThongKeDoanhThuTheoThang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportThongKeDoanhThuTheoThang.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DonVi.resx">
       <DependentUpon>DonVi.cs</DependentUpon>
@@ -431,9 +464,25 @@
     <EmbeddedResource Include="ThemNhomDanhMuc.resx">
       <DependentUpon>ThemNhomDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKeDoanhThuTungNgay.rpt">
+    <EmbeddedResource Include="ThongKe\CrystalReportThongKeChiPhiTheoNgay.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ThongKeDoanhThuTungNgay.cs</LastGenOutput>
+      <LastGenOutput>CrystalReportThongKeChiPhiTheoNgay.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\CrystalReportThongKeChiPhiTheoThang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportThongKeChiPhiTheoThang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\CrystalReportThongKeChiPhiTheoTuan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportThongKeChiPhiTheoTuan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\CrystalReportThongKeDoanhThuTheoTuan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportThongKeDoanhThuTheoTuan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\CrystalReportThongKeDoanhThuTungNgay.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportThongKeDoanhThuTungNgay.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ThucDon\CheBien.resx">
       <DependentUpon>CheBien.cs</DependentUpon>
@@ -538,9 +587,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ThongKe\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
