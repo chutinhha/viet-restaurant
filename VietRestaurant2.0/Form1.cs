@@ -1138,7 +1138,7 @@ namespace VietRestaurant2._0
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-           try
+            try
             {
                 if (MaHoaDon != 0)
                 {
@@ -1177,6 +1177,15 @@ namespace VietRestaurant2._0
 
                             }
                         }
+                        DialogResult dialog = MessageBox.Show("Bạn có muốn in hóa đơn", "In hóa đơn", MessageBoxButtons.YesNo);
+                       
+                            if(dialog== DialogResult.Yes)
+                            {
+                                BanHang.HoaDonBanHang hoadon = new BanHang.HoaDonBanHang(MaHoaDon);
+                                hoadon.ShowDialog();
+                               
+                            }
+                        MaHoaDon = 0;
                         ResetBanHang();
                     }
                 }
@@ -2045,6 +2054,17 @@ namespace VietRestaurant2._0
             cry.SetDataSource(dt);
             crystalReportViewer1.ReportSource = cry;
             crystalReportViewer1.Refresh();
+        }
+
+        private void btnThongKeLoiNhuanTheoNgay_Click(object sender, EventArgs e)
+        {
+            //HoaDon.model.Load load = new HoaDon.model.Load();
+            //DataTable dt = new DataTable();
+            //dt = load.LoadHoaDonNhapHangThongKe(dateTimeInputThongKeTuNgay.Value, dateTimeInputThongKeDenNgay.Value);
+          //  ThongKe.CrystalReportThongKeLoiNhuanTheoThang cry = new ThongKe.CrystalReportThongKeLoiNhuanTheoThang();
+          //  cry.SetDataSource(dt);
+           // crystalReportViewer1.ReportSource = cry;
+           // crystalReportViewer1.Refresh();
         }
     }
 }
