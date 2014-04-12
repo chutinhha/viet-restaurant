@@ -77,3 +77,4 @@ C:\Users\Khatmau_sr\Desktop\vietRestaurant\VietRestaurant2.0\obj\Debug\VietResta
 C:\Users\Khatmau_sr\Desktop\vietRestaurant\VietRestaurant2.0\obj\Debug\VietRestaurant2._0.KhachHang.ThemKhachHang.resources
 C:\Users\Khatmau_sr\Desktop\vietRestaurant\VietRestaurant2.0\obj\Debug\VietRestaurant2._0.ThucDon.CheBien.resources
 C:\Users\Khatmau_sr\Desktop\vietRestaurant\VietRestaurant2.0\obj\Debug\VietRestaurant2.0.csprojResolveAssemblyReference.cache
+C:\Users\Khatmau_sr\Desktop\vietRestaurant\VietRestaurant2.0\obj\Debug\VietRestaurant2._0.BanHang.HoaDonBanHang.resources

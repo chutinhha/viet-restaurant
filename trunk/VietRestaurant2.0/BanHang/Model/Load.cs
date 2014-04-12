@@ -42,6 +42,26 @@ namespace VietRestaurant2._0.BanHang.Model
             return dt;
         
         }
+        public DataTable LoadChiTietHoaDonBanHangInHoaDon(int MaHoaDon)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("  select TenMon,SoLuong,DonVi,Gia,GiamGia,TongTien from ChiTietHoaDonBanHang where MaHoaDon=@MaHoaDon", conn);
+            da.SelectCommand.Parameters.AddWithValue("@MaHoaDon", MaHoaDon);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+
+        }
+        public DataTable HoaDonBanHangInHoaDon(int MaHoaDon)
+        {
+            conn = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter("  select TenViTri,DichVu,GiamGia,VAT,ThanhToan from HoaDonBanHang where MaHoaDon=@MaHoaDon", conn);
+            da.SelectCommand.Parameters.AddWithValue("@MaHoaDon", MaHoaDon);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+
+        }
         public DataTable LoadHoaDonBanHangThongKe(DateTime date1, DateTime date2)
         {
             conn = new SqlConnection(ConnectionString);

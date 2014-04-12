@@ -90,6 +90,12 @@
     <Compile Include="BanHang\ChuyenBan.Designer.cs">
       <DependentUpon>ChuyenBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="BanHang\CrystalReportHoaDonBanHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportHoaDonBanHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BanHang\Giam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="BanHang\GiamGia.Designer.cs">
       <DependentUpon>GiamGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BanHang\HoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BanHang\HoaDonBanHang.Designer.cs">
+      <DependentUpon>HoaDonBanHang.cs</DependentUpon>
     </Compile>
     <Compile Include="BanHang\ListKhachHang.cs">
       <SubType>Form</SubType>
@@ -362,11 +374,18 @@
     <EmbeddedResource Include="BanHang\ChuyenBan.resx">
       <DependentUpon>ChuyenBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\CrystalReportHoaDonBanHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportHoaDonBanHang.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BanHang\Giam.resx">
       <DependentUpon>Giam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BanHang\GiamGia.resx">
       <DependentUpon>GiamGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\HoaDonBanHang.resx">
+      <DependentUpon>HoaDonBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BanHang\ListKhachHang.resx">
       <DependentUpon>ListKhachHang.cs</DependentUpon>
