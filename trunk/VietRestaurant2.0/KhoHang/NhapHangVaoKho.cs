@@ -194,9 +194,23 @@ namespace VietRestaurant2._0.KhoHang
                 
                 int ID = Convert.ToInt32(lblID.Text);
                 float SoLuong = float.Parse(txtSoLuong.Text);
-                dtTam.Rows.Add(ID, lblName.Text, lblDonVi.Text, SoLuong, Gia, ThanhTien);
-                dgvNhapHang.DataSource = dtTam;
-                TongTien();
+                int kiemtra = 0;
+                for (int i = 0; i < dtTam.Rows.Count; i++)
+                {
+                    if(ID ==Convert.ToInt32( dtTam.Rows[i][0].ToString()))
+                    {
+                        dtTam.Rows[i][3] = float.Parse( dtTam.Rows[i][3].ToString())+SoLuong;
+                        dtTam.Rows[i][5] = float.Parse(dtTam.Rows[i][3].ToString()) * float.Parse(dtTam.Rows[i][4].ToString());
+                        kiemtra = 1;
+                    }
+                }
+                if (kiemtra == 0)
+                {
+                    dtTam.Rows.Add(ID, lblName.Text, lblDonVi.Text, SoLuong, Gia, ThanhTien);
+                    dgvNhapHang.DataSource = dtTam;
+                    TongTien();
+                }
+                
                 }
             else
             {

@@ -566,17 +566,21 @@ namespace VietRestaurant2._0
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
+            LoadHoaDonNhapHang();
+        }
+        public void LoadHoaDonNhapHang()
+        {
             KiemTraHoaDon = 2;
             HoaDon.model.Load load = new HoaDon.model.Load();
-            DataTable dt = load.LoadHoaDonNhapHang(dateTimeInput1.Value,dateTimeInput2.Value);
+            DataTable dt = load.LoadHoaDonNhapHang(dateTimeInput1.Value, dateTimeInput2.Value);
             loadDataHoaDon(dt);
             lblHoaDon.Text = dt.Rows.Count.ToString();
             int Tong = 0;
-                for (int i = 0; i < dt.Rows.Count; i++)
-			{
-                 Tong =Convert.ToInt32( dt.Rows[i][2].ToString())+Tong;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Tong = Convert.ToInt32(dt.Rows[i][2].ToString()) + Tong;
             }
-                txtTongTien.Text = Tong.ToString();
+            txtTongTien.Text = Tong.ToString();
         }
         float a;
         private void checkso(DevComponents.DotNetBar.Controls.RichTextBoxEx txtGia)
@@ -667,7 +671,42 @@ namespace VietRestaurant2._0
                 MessageBox.Show("Bạn chưa chọn món");
             }
         }
-        
+        private void toolStripMenuItemXoaHoaDon_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int maHoaDon = Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells[1].Value.ToString());
+                if (KiemTraHoaDon == 1)
+                {
+                    //hoa don ban hang
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        HoaDon.Model.Delete delete = new HoaDon.Model.Delete();
+                        delete.XoaHoaDonBanHang(maHoaDon);
+                        LoadHoaDonBanHang();
+                    }
+                }
+                else if (KiemTraHoaDon == 2)
+                {
+                    // hoa don nhap hang
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        HoaDon.Model.Delete delete = new HoaDon.Model.Delete();
+                        delete.XoaHoaDonNhapHang(maHoaDon);
+                        LoadHoaDonNhapHang();
+                    }
+                }
+              
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Có lỗi");
+            }
+        }
+
         private void metroTabItemBanHang_Click(object sender, EventArgs e)
         {
             LoadKhuVuc();
@@ -1109,10 +1148,20 @@ namespace VietRestaurant2._0
                      DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
             {
-                int MaChiTiet = Convert.ToInt32(dataGridViewXListMonAn.SelectedRows[0].Cells[1].Value.ToString() );
+                int MaChiTiet = Convert.ToInt32(dataGridViewXListMonAn.SelectedRows[0].Cells[1].Value.ToString());
+                int SoLuong = Convert.ToInt32(dataGridViewXListMonAn.SelectedRows[0].Cells[4].Value.ToString());
+
+                    BanHang.Model.Update update = new BanHang.Model.Update();
+                    HoaDon.model.Load load = new HoaDon.model.Load();
+                    DataTable dt = load.LoadChiTietHoaDonTheoMaChiTietHoaDon(MaChiTiet);
+                    int MaMonAn = Convert.ToInt32(dt.Rows[0][1].ToString());
+                    update.TraHangTrongKho(MaMonAn, SoLuong);
+                   
                 BanHang.Model.Delete delete = new BanHang.Model.Delete();
                 delete.DeleteMonAn(MaChiTiet);
                 LoadChiTietHoaDon(MaHoaDon);
+                LoadSoLuongSanPham();
+                loadThucDon();
             }
                 }
             }
@@ -1229,9 +1278,30 @@ namespace VietRestaurant2._0
                     DialogResult dialog = MessageBox.Show("Bạn có muốn hủy bàn", "Hủy", MessageBoxButtons.YesNo);
                     if (dialog == DialogResult.Yes)
                     {
+                        for (int i = 0; i < dataGridViewXListMonAn.Rows.Count; i++)
+                        {
+                            int MaChiTiet = Convert.ToInt32(dataGridViewXListMonAn.Rows[i].Cells[1].Value.ToString());
+                            int SoLuong = Convert.ToInt32(dataGridViewXListMonAn.Rows[i].Cells[4].Value.ToString());
+
+                            BanHang.Model.Update update = new BanHang.Model.Update();
+                            HoaDon.model.Load load = new HoaDon.model.Load();
+                            DataTable dt = load.LoadChiTietHoaDonTheoMaChiTietHoaDon(MaChiTiet);
+                            int MaMonAn = Convert.ToInt32(dt.Rows[0][1].ToString());
+                            update.TraHangTrongKho(MaMonAn, SoLuong);
+                        }
+                       
+
+                        ////BanHang.Model.Delete delete = new BanHang.Model.Delete();
+                        ////delete.DeleteMonAn(MaChiTiet);
+                        
+
                         BanHang.Model.Delete delete = new BanHang.Model.Delete();
                         delete.DeleteHoaDon(MaHoaDon);
+                        LoadChiTietHoaDon(MaHoaDon);
+                        LoadSoLuongSanPham();
+                        loadThucDon();
                         ResetBanHang();
+                        MaHoaDon = 0;
                     }
                    
                 }
@@ -1249,6 +1319,10 @@ namespace VietRestaurant2._0
         int KiemTraHoaDon = 0;
         private void buttonX1_Click(object sender, EventArgs e)
         {
+            LoadHoaDonBanHang();
+        }
+        public void LoadHoaDonBanHang()
+        {
             BanHang.Model.Load load = new BanHang.Model.Load();
             DataTable dt = new DataTable(); ;
             KiemTraHoaDon = 1;
@@ -1260,7 +1334,7 @@ namespace VietRestaurant2._0
             {
                 dt = load.LoadHoaDonBanHangNo(dateTimeInput1.Value, dateTimeInput2.Value);
             }
-           
+
             loadDataHoaDon(dt);
             lblHoaDon.Text = dt.Rows.Count.ToString();
             int Tong = 0;
@@ -1270,7 +1344,6 @@ namespace VietRestaurant2._0
             }
             txtTongTien.Text = Tong.ToString();
         }
-
         private void toolStripMenuItemThemBan_Click(object sender, EventArgs e)
         {
             try
@@ -1794,13 +1867,16 @@ namespace VietRestaurant2._0
                 string Name = dataGridViewXThucDon.SelectedRows[0].Cells[2].Value.ToString();
                 ThucDon.CheBien chebien = new ThucDon.CheBien(Name, ID);
                 chebien.ShowDialog();
+                LoadSoLuongSanPham();
             }
             catch 
             {
 
-
             }
         }
+     
+
+
         // Xuất kho hàng ra Excel
         private void toolStripMenuItemXuatKhoRaExcel_Click(object sender, EventArgs e)
         {
@@ -1912,11 +1988,7 @@ namespace VietRestaurant2._0
 
         }
 
-        private void toolStripMenuItemXoaHoaDon_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void panelEx1_Click(object sender, EventArgs e)
         {
 
@@ -2065,6 +2137,48 @@ namespace VietRestaurant2._0
           //  cry.SetDataSource(dt);
            // crystalReportViewer1.ReportSource = cry;
            // crystalReportViewer1.Refresh();
+        }
+
+        private void toolStripMenuItemPhieuChi_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    int maPhieu = Convert.ToInt32(dgvPhieuChi.SelectedRows[0].Cells[1].Value.ToString());
+                    ThuChi.Model.Delete delete = new ThuChi.Model.Delete();
+                    delete.DeletePhieuChi(maPhieu);
+                }
+               
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Bạn chưa chọn Phieu");
+            }
+        }
+
+        private void toolStripMenuItemPhieuThu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    int maPhieu = Convert.ToInt32(dgvPhieuThu.SelectedRows[0].Cells[1].Value.ToString());
+                    ThuChi.Model.Delete delete = new ThuChi.Model.Delete();
+                    delete.DeletePhieuThu(maPhieu);
+                    LoadThuChi();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Bạn chưa chọn Phieu");
+            }
         }
     }
 }

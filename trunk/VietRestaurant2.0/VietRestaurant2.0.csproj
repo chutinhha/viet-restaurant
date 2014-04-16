@@ -190,6 +190,7 @@
     <Compile Include="HoaDon\ChiTietHoaDon.Designer.cs">
       <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDon\Model\Delete.cs" />
     <Compile Include="HoaDon\Model\Load.cs" />
     <Compile Include="KhachHang\Model\Delete.cs" />
     <Compile Include="KhachHang\Model\Insert.cs" />
