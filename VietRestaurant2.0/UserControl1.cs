@@ -21,7 +21,10 @@ namespace VietRestaurant2._0
 
         private void MetroBanHang_Click(object sender, EventArgs e)
         {
+           Form1 form1 = new Form1();
+           //metroTilePanel1!MetroBanHang 
             
+
         }
 
         private void MetroQuanLiThucDon_Click(object sender, EventArgs e)
