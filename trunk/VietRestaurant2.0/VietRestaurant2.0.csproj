@@ -172,6 +172,12 @@
       <DependentUpon>CrystalReportThongKeDoanhThuTheoThang.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="DonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,6 +421,9 @@
     <EmbeddedResource Include="CrystalReportThongKeDoanhThuTheoThang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportThongKeDoanhThuTheoThang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DonVi.resx">
       <DependentUpon>DonVi.cs</DependentUpon>
