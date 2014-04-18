@@ -2180,5 +2180,50 @@ namespace VietRestaurant2._0
                 MessageBox.Show("Bạn chưa chọn Phieu");
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            XuLyTaiKhoan();
+            LoadKhuVuc();
+            loadThucDon();
+            LoadTreeViewThucDon1();
+        }
+        int MaTaiKhoan=0;
+        string TenTaiKhoan="";
+        int CapBac=0;
+        public void LoadTaiKhoan(int ID, string Name, int Level)
+        {
+            MaTaiKhoan = ID;
+            TenTaiKhoan = Name;
+            CapBac = Level;
+        }
+
+        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        { 
+            MaTaiKhoan = 0;
+            TenTaiKhoan = "";
+            CapBac = 0;
+            XuLyTaiKhoan();
+            
+        }
+        public void XuLyTaiKhoan()
+        {
+            if (MaTaiKhoan == 0)
+            {
+                DangNhap dangNhap = new DangNhap();
+                dangNhap.taiKhoan = new DangNhap.TaiKhoan(LoadTaiKhoan);
+                dangNhap.ShowDialog();
+                btnTaiKhoan.Text = "Xin Chào " + TenTaiKhoan;
+            }
+        }
+
+        private void metroAppButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
