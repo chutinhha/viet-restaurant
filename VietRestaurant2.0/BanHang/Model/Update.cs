@@ -198,6 +198,29 @@ namespace VietRestaurant2._0.BanHang.Model
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
+                    // nhung mon khong che bien thi so luong  = null
+                    // nhung mon co so luong khac null
+                    SqlDataAdapter daThucDonNotNull = new SqlDataAdapter("select MaMonAn from ThucDon where SoLuong is Not Null",conn);
+                    DataTable dtThucDonNotNull = new DataTable();
+                    daThucDonNotNull.Fill(dtThucDonNotNull);
+                    for (int f = 0; f < dtThucDonNotNull.Rows.Count; f++)
+                    {
+                        int MaMonAnKT = Convert.ToInt32( dtThucDonNotNull.Rows[f][0].ToString());
+                        SqlDataAdapter daKiemTra = new SqlDataAdapter("select * from CheBien where MaMonAn = @MaMonAn", conn);
+                        daKiemTra.SelectCommand.Parameters.AddWithValue("@MaMonAn",MaMonAnKT);
+                        DataTable dtKiemTra = new DataTable();
+                        daKiemTra.Fill(dtKiemTra);
+                        if (dtKiemTra.Rows.Count == 0)
+                        {
+                            SqlCommand cmd2 = new SqlCommand("Update ThucDon set SoLuong = null where MaMonAn = @MaMonAn",conn);
+                            cmd2.Parameters.AddWithValue("@MaMonAn", MaMonAnKT);
+                            conn.Open();
+                            cmd2.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                    }
+                    
+                    
                 }
             }
             
